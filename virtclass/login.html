@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <title>GFDO 登入</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content="本專題組畢業於2019/06/15"/>
+  <meta name="author" content="組長：程鈺凱 組員：黃明渝、高培展"/>
+  <link rel="icon" href="./images/favicon.png" sizes="32x32" type="image/png"/>
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+  <script type="text/javascript" src="./js/jquery-3.3.1.slim.min.js"></script>
+  <script type="text/javascript" src="./js/ajax.js"></script>
+  <script type="text/javascript" src="./js/popper.min.js"></script>
+  <script type="text/javascript" src="./js/ip.js"></script>
+  <script type="text/javascript" src="./js/login.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+</head>
+
+<body>
+	<div class="page-content full-width w3-animate-opacity">
+		<div class="container">
+			<div class="row mx-1">
+				<div class="col-md-4 mx-auto">
+					<form class="needs-validation" novalidate>
+						<div class="card card-default widget animated box-shadow">
+							  <div class="card-heading">
+								<h3 class="card-title font-weight-bold">登入 Sign In</h3>
+							  </div>
+							  <div class="card-body">
+								  <div class="form-group">
+									<label>Student ID</label>
+									<input type="text" class="form-control" placeholder="請輸入學號" id="unum" autocomplete="off" oninput="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" onpaste="value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" oncontextmenu = "value=value.replace(/[^\a-\z\A-\Z0-9]/g,'')" required/>
+								  <div class="invalid-feedback">
+										 請輸入正確的學號
+									  </div>
+								  </div>
+								  <div class="form-group">
+									<label for="password">Password</label>
+									<input type="password" class="form-control" placeholder="請輸入密碼" id="passwd" autocomplete="off" required/>
+								  <div class="invalid-feedback">
+										請輸入正確的密碼	
+									  </div>
+								  </div>
+								  <button id="logbtn" type="submit" role="button" class="btn btn-outline-info btn-block btn-lg bg-dark font-weight-bolder" style="padding: 8px 22px;">登入</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
+

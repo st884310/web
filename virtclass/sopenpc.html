@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <title>GFDO 虛擬教室的快速磁碟優化系統</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content="本專題組畢業於2019/06/15"/>
+  <meta name="author" content="組長：程鈺凱 組員：黃明渝、高培展"/>
+  <link rel="icon" href="./images/favicon.png" sizes="32x32" type="image/png"/>
+  <link rel="stylesheet" type="text/css" href="./css/material-design-iconic-font.min.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/style.css"/>
+  <link rel="stylesheet" type="text/css" href="./css/toastr.min.css"/>
+  <script type="text/javascript" src="./js/jquery-3.3.1.slim.min.js"></script>
+  <script type="text/javascript" src="./js/ajax.js"></script> 
+  <script type="text/javascript" src="./js/popper.min.js"></script>
+  <script type="text/javascript" src="./js/ip.js"></script>
+  <script type="text/javascript" src="./js/sopenpc.js"></script>
+  <script type="text/javascript" src="./js/toastr.min.js"></script>
+  <script type="text/javascript" src="./js/scrollTop.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+  <script type="module" src="./js/instant.js"></script>
+</head>
+
+<body onload="pcimg()">
+<nav class="navbar navbar-expand-lg border-bottom navbar-dark stroke">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+<a class="navbar-brand font-weight-bold logo glow" href="index.html">GFDO</a>
+  <div class="collapse navbar-collapse font-weight-bold" style="font-size:20px" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="information.html"><i class="zmdi zmdi-accounts"></i>&nbsp;會員管理</a>
+      </li>
+      <li class="nav-itemi active">
+        <a class="nav-link" href="sopenpc.html"><i class="zmdi zmdi-power"></i>&nbsp;電腦管理</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="status.html"><i class="zmdi zmdi-wrench"></i>&nbsp;原始碟管理</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="backup.html"><i class="zmdi zmdi-cloud-outline-alt"></i>&nbsp;備份</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="restore.html"><i class="zmdi zmdi-rotate-right"></i>&nbsp;還原</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="curriculum.html"><i class="zmdi zmdi-layers"></i>&nbsp;課表管理</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="message.html"><i class="zmdi zmdi-comments"></i>&nbsp;問題處理</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="loginout.php" onclick="return confirm('您確定要登出？');" data-no-instant><i class="zmdi zmdi-sign-in"></i>&nbsp;登出</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<!-- 虛擬機 -->
+<div class="container mt-3 w3-animate-opacity">
+	<div class="box-shadow text-center text-white rounded-top border border-white mt-3" style="background-color: #000e1d;" >
+		<div class="row font-weight-bold mx-auto">
+			<div class="col-lg-3 col-md-3 col-sm-1 align-self-end">
+				<div class="dropdown">
+					<button type="button" class="btn btn-lg btn-primary dropdown-toggle font-weight-bolder my-2" data-toggle="dropdown">電腦管理</button>
+                        	         <div class="dropdown-menu">
+                        	              <a class="dropdown-item" onclick="openbtn(9999)" href="#" data-no-instant>全電腦開機</a>
+                                	      <a class="dropdown-item" id="updatebtn" href="#" data-no-instant>更新電腦狀態</a>
+                               		</div>
+				</div>
+			</div>
+			<div class="col mt-2">
+				<img id="gray" class="w-75" src="" title="未開機" alt="未開機"/>
+				<p>未開機</p>
+			</div>
+			<div class="col mt-2">
+				<img id="blue" class="w-75" src="" title="開機或關機中" alt="開機或關機中"/>
+				<p>開機或關機中</p>
+			</div>
+			<div class="col mt-2">
+				<img id="green" class="w-75" src="" title="使用中" alt="使用中"/>
+				<p>使用中</p>
+			</div>
+			<div class="col mt-2">
+				<img id="red" class="w-75" src="" title="故障中" alt="故障中"/>
+				<p>故障中</p>
+			</div>
+			<div class="col-lg-3 col-md-3 col-sm-1 align-self-end">
+			<div class="dropdown">
+				<button type="button" class="btn btn-lg btn-danger dropdown-toggle font-weight-bolder my-2" data-toggle="dropdown">
+				      一鍵關機
+				</button>
+  				 <div class="dropdown-menu"> 
+				      <a class="dropdown-item" onclick="closebtn(0000)" href="#" data-no-instant>全電腦正常關機</a>
+				      <a class="dropdown-item" onclick="closebtn(1111)" href="#" data-no-instant>全電腦強迫關機</a>
+			         </div>
+		       </div>
+
+		</div>
+	</div>
+</div>
+	<div class="box-shadow bg-white">
+                <hr/>
+                        <div class="text-center font-weight-bold shadow-lg bg-light h3 m-3 p-2" style="border:4px;border-color:#bdbdbd #9e9e9e;border-style:outset">白板</div>
+                <div class="row rounded-bottom">
+                        <table class="mx-auto w-50 my-3" id="comarea"></table>
+                </div>
+        </div>
+</div>
+<div id="mySidenav" class="sidenav"></div>
+<a id="back-to-top" title="Back to top" href="#" data-no-instant><i class="zmdi zmdi-chevron-up zmdi-hc-2x"></i></a>
+<hr class="hr-shadow bg-white mt-4" />
+<footer>
+        <p class="text-break text-white text-center font-weight-bold my-1">&#169;&nbsp;2018&nbsp;DIC@GFDO&nbsp;,&nbsp;All&nbsp;rights&nbsp;reserved&nbsp;2018-2019</p>
+</footer>
+
+</body>
+</html>
+

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <title>GFDO 虛擬教室的快速磁碟優化系統</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content="本專題組畢業於2019/06/15"/>
+  <meta name="author" content="組長：程鈺凱 組員：黃明渝、高培展"/>
+  <link rel="icon" href="./images/favicon.png" sizes="32x32" type="image/png"/>
+  <link rel="stylesheet" href="./css/material-design-iconic-font.min.css"/>
+  <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/toastr.min.css"/>
+  <link rel="stylesheet" href="./css/multiple-select.min.css">
+  <script type="text/javascript" src="./js/jquery-3.3.1.slim.min.js"></script>
+  <script type="text/javascript" src="./js/ajax.js"></script>
+  <script type="text/javascript" src="./js/ip.js"></script>
+  <script type="text/javascript" src="./js/restore.js"></script>
+  <script type="text/javascript" src="./js/popper.min.js"></script>
+  <script type="text/javascript" src="./js/toastr.min.js"></script>
+  <script type="text/javascript" src="./js/multiple-select.min.js"></script>
+  <script type="text/javascript" src="./js/scrollTop.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+  <script type="module" src="./js/instant.js"></script>
+</head>
+
+<body onload="pcimg()">
+<nav class="navbar navbar-expand-lg border-bottom navbar-dark stroke">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+<a class="navbar-brand font-weight-bold logo glow" href="index.html">GFDO</a>
+  <div class="collapse navbar-collapse font-weight-bold" style="font-size:20px" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="information.html"><i class="zmdi zmdi-accounts"></i>&nbsp;會員管理</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sopenpc.html"><i class="zmdi zmdi-power"></i>&nbsp;電腦管理</a>
+      </li>
+        <li class="nav-item">
+        <a class="nav-link" href="status.html"><i class="zmdi zmdi-wrench"></i>&nbsp;原始碟管理</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="backup.html"><i class="zmdi zmdi-cloud-outline-alt"></i>&nbsp;備份</a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="restore.html"><i class="zmdi zmdi-rotate-right"></i>&nbsp;還原</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="curriculum.html"><i class="zmdi zmdi-layers"></i>&nbsp;課表管理</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="message.html"><i class="zmdi zmdi-comments"></i>&nbsp;問題處理</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="loginout.php" onclick="return confirm('您確定要登出？');" data-no-instant><i class="zmdi zmdi-sign-in"></i>&nbsp;登出</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+	<div class="container pt-3 w3-animate-opacity">
+		<div class="card text-center box-shadow">
+			<div class="card-header">
+				<h2 class="text-center font-weight-bold my-auto">還原系統</h2>
+			</div>
+			<div class="card-body">
+				<div class="row">
+					<form class="mx-auto" method="post" id="restoreing">
+						<div class="form-group my-auto">
+							<label class="font-weight-bold mr-2">請選擇還原動作：</label>
+							<div class="custom-control custom-radio custom-control-inline">
+							  <input type="radio" id="original" name="rest1" class="custom-control-input" value="1">
+							  <label class="custom-control-label font-weight-bolder" for="original">原始碟還原</label>
+							</div>
+							<div class="custom-control custom-radio custom-control-inline">
+							  <input type="radio" id="backing" name="rest1" class="custom-control-input" value="2">
+							  <label class="custom-control-label font-weight-bolder" for="backing">快照碟還原</label>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="row">
+				<div class="col-md-3 col-sm-1"></div>
+					<div id="haha" class="input-group col-md-6 col-sm-10">
+						<div class="input-group-prepend">
+							<label class="input-group-text font-weight-bold" for="inputGroupSelect01">選擇映像檔</label>
+						</div>
+							<select id="system" class="custom-select"></select>
+					</div>
+				</div>
+				</hr>
+				<div class="col-md-2 col-sm-1"></div>
+				<div class="row">
+					<div class="col-md-3 col-sm-1"></div>
+					<div class="my-3 col-md-6 col-sm-10">
+						<select id="pcnum" multiple="multiple" data-toggle="select" class="align-middle mt-2 w-100">
+							<option value="PC1-1">01</option>
+							<option value="PC1-2">02</option>
+							<option value="PC2-1">03</option>
+							<option value="PC2-2">04</option>
+							<option value="PC3-1">05</option>
+							<option value="PC3-2">06</option>
+							<option value="PC4-1">07</option>
+							<option value="PC4-2">08</option>
+							<option value="PC5-1">09</option>
+							<option value="PC5-2">10</option>
+							<option value="PC6-1">11</option>
+							<option value="PC6-2">12</option>
+							<option value="PC7-1">13</option>
+							<option value="PC7-2">14</option>
+							<option value="PC8-1">15</option>
+							<option value="PC8-2">16</option>
+							<option value="PC9-1">17</option>
+							<option value="PC9-2">18</option>
+							<option value="PC10-1">19</option>
+							<option value="PC10-2">20</option>
+							<option value="PC11-1">21</option>
+							<option value="PC11-2">22</option>
+							<option value="PC12-1">23</option>
+							<option value="PC12-2">24</option>
+							<option value="PC13-1">25</option>
+							<option value="PC13-2">26</option>
+							<option value="PC14-1">27</option>
+							<option value="PC14-2">28</option>
+							<option value="PC15-1">29</option>
+							<option value="PC15-2">30</option>
+							<option value="PC16-1">31</option>
+							<option value="PC16-2">32</option>
+							<option value="PC17-1">33</option>
+							<option value="PC17-2">34</option>
+							<option value="PC18-1">35</option>
+							<option value="PC18-2">36</option>
+							<option value="PC19-1">37</option>
+							<option value="PC19-2">38</option>
+							<option value="PC20-1">39</option>
+							<option value="PC20-2">40</option>
+							<option value="PC21-1">41</option>
+							<option value="PC21-2">42</option>
+						</select>
+					</div>
+				<hr/>
+				<div class="container box-shadow" >
+			                <div class="row text-center">
+        	        		        <table class="mx-auto w-50" id="comarea"></table>
+               				</div>
+       				</div>
+			</div>
+			<div class="card-footer"><button type="button" id="restorebtn" class="btn btn-outline-dark btn-block btn-lg font-weight-bolder">電腦還原</button></div>
+		</div>
+	</div>
+	<div id="mySidenav" class="sidenav"></div>
+        <a id="back-to-top" title="Back to top" href="#" data-no-instant><i class="zmdi zmdi-chevron-up zmdi-hc-2x"></i></a>
+	<hr class="hr-shadow bg-white mt-4"/>
+	<footer>
+        	<p class="text-break text-white text-center font-weight-bold my-1">&#169;&nbsp;2018&nbsp;DIC@GFDO&nbsp;,&nbsp;All&nbsp;rights&nbsp;reserved&nbsp;2018-2019</p>
+	</footer>
+
+</body>
+</html>

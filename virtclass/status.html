@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <title>GFDO 虛擬教室的快速磁碟優化系統</title>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+  <meta name="description" content="本專題組畢業於2019/06/15"/>
+  <meta name="author" content="組長：程鈺凱 組員：黃明渝、高培展"/>
+  <link rel="icon" href="./images/favicon.png" sizes="32x32" type="image/png"/>
+  <link rel="stylesheet" href="./css/material-design-iconic-font.min.css"/>
+  <link rel="stylesheet" href="./css/bootstrap.min.css"/>
+  <link rel="stylesheet" href="./css/style.css"/>
+  <link rel="stylesheet" href="./css/toastr.min.css"/>
+  <script type="text/javascript" src="./js/jquery-3.3.1.slim.min.js"></script>
+  <script type="text/javascript" src="./js/ajax.js"></script>
+  <script type="text/javascript" src="./js/popper.min.js"></script>
+  <script type="text/javascript" src="./js/toastr.min.js"></script>
+  <script type="text/javascript" src="./js/scrollTop.js"></script>
+  <script type="text/javascript" src="./js/ip.js"></script>
+  <script type="text/javascript" src="./js/status.js"></script>
+  <script type="text/javascript" src="./js/bootstrap.min.js"></script>
+  <script type="module" src="./js/instant.js"></script>
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg border-bottom navbar-dark stroke">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+<a class="navbar-brand font-weight-bold logo glow" href="index.html">GFDO</a>
+  <div class="collapse navbar-collapse font-weight-bold" style="font-size:20px" id="collapsibleNavbar">
+    <ul class="navbar-nav ml-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="information.html"><i class="zmdi zmdi-accounts"></i>&nbsp;會員管理</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="sopenpc.html"><i class="zmdi zmdi-power"></i>&nbsp;電腦管理</a>
+      </li>
+        <li class="nav-item active">
+        <a class="nav-link" href="status.html"><i class="zmdi zmdi-wrench"></i>&nbsp;原始碟管理</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="backup.html"><i class="zmdi zmdi-cloud-outline-alt"></i>&nbsp;備份</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="restore.html"><i class="zmdi zmdi-rotate-right"></i>&nbsp;還原</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="curriculum.html"><i class="zmdi zmdi-layers"></i>&nbsp;課表管理</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="message.html"><i class="zmdi zmdi-comments"></i>&nbsp;問題處理</a>
+      </li>
+          <li class="nav-item">
+        <a class="nav-link" href="loginout.php" onclick="return confirm('您確定要登出？');" data-no-instant><i class="zmdi zmdi-sign-in"></i>&nbsp;登出</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container mt-3 w3-animate-opacity">
+	<div class="card box-shadow">
+		<div class="card-body">
+			<form>
+				<input type="file" class="form-control-file float-left border rounded mt-3 w-25">
+				<button type="button" class="btn btn-outline-info btn-sm font-weight-bold mt-3 m-2"><i class="zmdi zmdi-upload"></i>&nbsp;上傳原始碟</button>
+				<input type="search" class="form-control float-right w-25 my-2" id="myInput" autocomplete="off" placeholder="Search..">
+			</form>
+			<div class="table-responsive">
+				<table class="table table-striped table-hover text-center" id="myTable">
+					 <thead>
+					    <tr class="bg-dark text-white">
+						<th class="align-middle" scope="col">編號</th>
+						<th class="align-middle" scope="col">原始碟名稱</th>
+						<th class="align-middle" scope="col">原始碟容量</th>
+						<th class="align-middle" scope="col">最後修改時間</th>
+						<th class="align-middle" scope="col">修改名稱</th>
+						<th class="align-middle" scope="col">刪除</th>
+					    </tr>			
+	  				</thead>
+				 <tbody id="statustable">
+				</tbody>
+				</table>
+			</div>
+		</div>
+	</div>	
+</div>
+<a id="back-to-top" title="Back to top" href="#" data-no-instant><i class="zmdi zmdi-chevron-up zmdi-hc-2x"></i></a>
+<div id="mySidenav" class="sidenav"></div>
+<hr class="hr-shadow bg-white mt-4"/>
+<footer>
+        <p class="text-break text-white text-center font-weight-bold my-1">&#169;&nbsp;2018&nbsp;DIC@GFDO&nbsp;,&nbsp;All&nbsp;rights&nbsp;reserved&nbsp;2018-2019</p>
+</footer>
+
+</body>
+</html>

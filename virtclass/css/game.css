@@ -1,0 +1,178 @@
+/* Add some margin to the page and set a default font and colour */
+*{
+font-family: Helvetica, Arial, "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", sans-serif;
+}
+
+body {
+  background-image:url( '../images/game/gameback.png' );
+  margin-top: 30px;
+  font-family: "Georgia", serif;
+  line-height: 5em;
+  color: #333;
+}
+
+/* Give headings their own font */
+
+h1, h2, h3, h4 {
+  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+}
+
+/* Main content area */
+
+#content {
+/*  margin: 80px 70px;*/
+  text-align: center;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Header/footer boxes */
+
+.wideBox {
+  clear: both;
+  text-align: center;
+  margin: 70px;
+  padding: 10px;
+  background: #ebedf2;
+  border: 1px solid #333;
+}
+
+.wideBox h1 {
+  font-weight: bold;
+  margin: 20px;
+  color: #666;
+  font-size: 1.5em;
+}
+
+/* Slots for final card positions */
+
+#cardSlots {
+  margin: 50px auto 0 auto;
+  background: black;
+}
+
+/* The initial pile of unsorted cards */
+
+#cardPile {
+  margin: 0 auto;
+  background: #ffd;
+}
+
+#cardPile {
+  width: 1110px;
+  height: 120px;
+  padding: 20px;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+}
+
+#cardSlots {
+  width: 1110px;
+  height: 600px;
+  padding: 1%;
+  font-weight:bold;
+  border: 10px solid #3e3e3e;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+}
+
+/* Individual cards and slots */
+
+#cardSlots div, #cardPile div {
+  font-family: Helvetica, Arial, "文泉驛正黑", "WenQuanYi Zen Hei", "儷黑 Pro", "LiHei Pro", "黑體-繁", "Heiti TC", "微軟正黑體", "Microsoft JhengHei", sans-serif;
+  font-size:20px;
+  float: left;
+  width: 96px;
+  height: 78px;
+/*  padding: 10px;
+  padding-top: 40px;*/
+  padding: 0;
+  padding-bottom: 0;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  margin: 0 0 0 10px;
+  background: #fff;
+}
+
+#cardPile div:hover {
+   box-shadow: 5px 5px .1em rgba(0, 0, 0, .8);
+   background: rgb(206,219,233); /* Old browsers */
+   background: -moz-linear-gradient(top, rgba(206,219,233,1) 0%, rgba(170,197,222,1) 17%, rgba(97,153,199,1) 50%, rgba(58,132,195,1) 51%, rgba(65,154,214,1) 59%, rgba(75,184,240,1) 71%, rgba(58,139,194,1) 84%, rgba(38,85,139,1) 100%); /* FF3.6-15 */
+   background: -webkit-linear-gradient(top, rgba(206,219,233,1) 0%,rgba(170,197,222,1) 17%,rgba(97,153,199,1) 50%,rgba(58,132,195,1) 51%,rgba(65,154,214,1) 59%,rgba(75,184,240,1) 71%,rgba(58,139,194,1) 84%,rgba(38,85,139,1) 100%); /* Chrome10-25,Safari5.1-6 */
+   background: linear-gradient(to bottom, rgba(206,219,233,1) 0%,rgba(170,197,222,1) 17%,rgba(97,153,199,1) 50%,rgba(58,132,195,1) 51%,rgba(65,154,214,1) 59%,rgba(75,184,240,1) 71%,rgba(58,139,194,1) 84%,rgba(38,85,139,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cedbe9', endColorstr='#26558b',GradientType=0 ); /* IE6-9 */
+}
+
+#cardSlots div:first-child, #cardPile div:first-child {
+  margin-left: 0;
+}
+
+#cardSlots div.hovered {
+  background: #aaa;
+}
+
+#cardSlots div {
+  border-style: dashed;
+}
+
+#cardPile div {
+  background: rgb(228,245,252); /* Old browsers */
+  background: -moz-linear-gradient(top, rgba(228,245,252,1) 0%, rgba(191,232,249,1) 50%, rgba(159,216,239,1) 51%, rgba(42,176,237,1) 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, rgba(228,245,252,1) 0%,rgba(191,232,249,1) 50%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, rgba(228,245,252,1) 0%,rgba(191,232,249,1) 50%,rgba(159,216,239,1) 51%,rgba(42,176,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=0 ); /* IE6-9 */
+  color: #fff;
+  font-size: 50px;
+  text-shadow: 0 0 3px #000;
+}
+
+#cardPile div.ui-draggable-dragging {
+  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+}
+
+/* Individually coloured cards */
+
+#card1.correct { background: red; }
+#card2.correct { background: brown; }
+#card3.correct { background: orange; }
+#card4.correct { background: yellow; }
+#card5.correct { background: green; }
+#card6.correct { background: cyan; }
+#card7.correct { background: blue; }
+#card8.correct { background: indigo; }
+#card9.correct { background: purple; }
+#card10.correct { background: violet; }
+
+
+/* "You did it!" message */
+#successMessage {
+  position: absolute;
+  left: 580px;
+  top: 250px;
+  width: 0;
+  height: 0;
+  z-index: 100;
+  background: #dfd;
+  border: 2px solid #333;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  border-radius: 10px;
+  -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  padding: 20px;
+}
